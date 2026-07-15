@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NEXUS ROLEPLAY - Serveur MTA Premium</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- FontAwesome pour les icônes de jeu -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <!-- Barre de Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="#" class="logo" onclick="showSection('home')"><span class="accent">NEXUS</span>RP</a>
+            <div class="menu-toggle" id="mobile-menu">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#" onclick="showSection('home')" class="active-link">Accueil</a></li>
+                <li><a href="#" onclick="showSection('rules')">Règles</a></li>
+                <li><a href="#" onclick="showSection('gallery')">Galerie</a></li>
+                <li><a href="#" onclick="showSection('staff')">L'Équipe</a></li>
+                <li id="nav-dashboard-link" class="hidden"><a href="#" onclick="showSection('dashboard')" class="accent-link">Mon Dashboard</a></li>
+                <li id="auth-buttons">
+                    <button class="btn btn-secondary" onclick="openModal('login-modal')">Connexion</button>
+                    <button class="btn btn-primary" onclick="openModal('register-modal')">Rejoindre</button>
+                </li>
+                <li id="user-profile-nav" class="hidden">
+                    <div class="user-pill" onclick="showSection('dashboard')">
+                        <img src="https://i.pravatar.cc/150?img=60" alt="Avatar" class="nav-avatar">
+                        <span id="nav-username">Joueur</span>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- SECTION PRINCIPALE (CONTENU DYNAMIQUE) -->
+    <main>
+
+        <!-- PAGE D'ACCUEIL -->
+        <section id="home" class="page-section active">
+            <!-- Hero Section -->
+            <div class="hero">
+                <div class="hero-overlay"></div>
+                <div class="hero-content">
+                    <div class="hero-badge">SERVEUR MTA : RP INTERNATIONAL SERRE</div>
+                    <h1 class="hero-title">ENTREZ DANS UNE NOUVELLE EXPÉRIENCE <span class="accent">ROLEPLAY</span></h1>
+                    <p class="hero-desc">
+                        Nexus est un univers persistant ultra-réaliste conçu pour les passionnés de RolePlay. Écrivez votre propre destin, bâtissez un empire criminel, intégrez les forces de l'ordre ou devenez un magnat de l'immobilier légal au sein d'une communauté soudée et propulsée par des scripts MTA exclusifs et révolutionnaires.
+                    </p>
+                    <div class="hero-actions">
+                        <button class="btn btn-primary btn-lg" onclick="openModal('register-modal')">Créer un compte <i class="fas fa-user-plus"></i></button>
+                        <a href="https://discord.gg/votrelien" target="_blank" class="btn btn-discord btn-lg">Rejoindre Discord <i class="fab fa-discord"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Pourquoi Nous Choisir -->
+            <section class="container features-section">
+                <h2 class="section-title">POURQUOI CHOISIR <span class="accent">NEXUS RP ?</span></h2>
+                <div class="grid-4">
+                    <div class="card glass-card feature-card">
+                        <div class="card-icon"><i class="fas fa-theater-masks"></i></div>
+                        <h3>Immersion Totale</h3>
+                        <p>Une liberté d'action totale encadrée par des règles strictes assurant des scènes de jeu d'une qualité inégalée et réaliste.</p>
+                    </div>
+                    <div class="card glass-card feature-card">
+                        <div class="card-icon"><i class="fas fa-users"></i></div>
+                        <h3>Communauté Active</h3>
+                        <p>Un serveur vivant 24h/24, soutenu par des événements quotidiens, des factions dynamiques et un staff à votre écoute.</p>
+                    </div>
+                    <div class="card glass-card feature-card">
+                        <div class="card-icon"><i class="fas fa-code"></i></div>
+                        <h3>Système Moderne</h3>
+                        <p>Des scripts MTA exclusifs : économie dynamique, customisation avancée des véhicules, et gestion de propriétés haut de gamme.</p>
+                    </div>
+                    <div class="card glass-card feature-card">
+                        <div class="card-icon"><i class="fas fa-user-shield"></i></div>
+                        <h3>Administration Pro</h3>
+                        <p>Une équipe de modération mature et professionnelle assurant un traitement impartial, rapide et de haute qualité.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Parcours Joueur (Timeline) -->
+            <section class="container timeline-section">
+                <h2 class="section-title">COMMENT REJOINDRE <span class="accent">L'AVENTURE</span></h2>
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-num">1</div>
+                        <div class="timeline-content glass-card">
+                            <h3>Inscription sur le portail</h3>
+                            <p>Créez votre compte unique en quelques secondes pour lier vos futures données de jeu.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-num">2</div>
+                        <div class="timeline-content glass-card">
+                            <h3>Candidature Whitelist</h3>
+                            <p>Remplissez notre formulaire de recrutement en détaillant l'histoire et les ambitions de votre personnage.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-num">3</div>
+                        <div class="timeline-content glass-card">
+                            <h3>Entretien Oral Discord</h3>
+                            <p>Passez un entretien rapide et amical avec nos guides pour valider vos bases de jeu et votre matériel audio.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-num">4</div>
+                        <div class="timeline-content glass-card">
+                            <h3>Accès Serveur & Immersion</h3>
+                            <p>Téléchargez notre pack d'assets exclusifs, connectez-vous au serveur et lancez votre propre histoire.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </section>
+
+        <!-- DASHBOARD JOUEUR (MASQUÉ PAR DÉFAUT SI NON CONNECTÉ) -->
+        <section id="dashboard" class="page-section container">
+            <div class="dashboard-header">
+                <div class="user-meta">
+                    <img src="https://i.pravatar.cc/150?img=60" alt="Avatar" class="dash-avatar">
+                    <div>
+                        <h2 id="dash-username">Joueur_Test</h2>
+                        <span class="user-badge-level">Niveau RP: 1 (Citoyen)</span>
+                    </div>
+                </div>
+                <div class="server-status-pill glass-card">
+                    <span class="status-dot online"></span>
+                    <span>MTA Direct : <strong>192.168.1.100:22003</strong> (142/250 joueurs)</span>
+                </div>
+            </div>
+
+            <div class="grid-3-2 mt-4">
+                <!-- Colonne de Gauche : Progression & Candidature -->
+                <div class="glass-card p-4">
+                    <h3>Progression de votre intégration</h3>
+                    <div class="progress-tracker mt-3">
+                        <div class="step completed" id="step-1">
+                            <span class="step-dot"><i class="fas fa-check"></i></span>
+                            <div class="step-text">
+                                <h4>Étape 1 : Compte créé</h4>
+                                <p>Félicitations, votre espace membre est actif.</p>
+                            </div>
+                        </div>
+                        <div class="step pending" id="step-2">
+                            <span class="step-dot">2</span>
+                            <div class="step-text">
+                                <h4>Étape 2 : Whitelist</h4>
+                                <p id="step-2-desc">Vous devez rédiger votre dossier pour continuer.</p>
+                                <button class="btn btn-primary btn-sm mt-2" id="btn-start-whitelist" onclick="showSection('whitelist')">Remplir la Whitelist</button>
+                            </div>
+                        </div>
+                        <div class="step locked" id="step-3">
+                            <span class="step-dot">3</span>
+                            <div class="step-text">
+                                <h4>Étape 3 : Entretien Discord</h4>
+                                <p>Validation de votre micro et règles clés en vocal.</p>
+                            </div>
+                        </div>
+                        <div class="step locked" id="step-4">
+                            <span class="step-dot"><i class="fas fa-lock"></i></span>
+                            <div class="step-text">
+                                <h4>Étape 4 : Serveur accessible</h4>
+                                <p>L'accès aux factions et au jeu n'attend plus que vous.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Colonne de Droite : Stats Profil & Infos rapides -->
+                <div class="flex-column gap-4">
+                    <div class="glass-card p-4">
+                        <h3>Détails du compte</h3>
+                        <table class="profile-table">
+                            <tr>
+                                <td>UID Compte</td>
+                                <td class="text-right">#10854</td>
+                            </tr>
+                            <tr>
+                                <td>Date d'inscription</td>
+                                <td class="text-right" id="dash-join-date">Aujourd'hui</td>
+                            </tr>
+                            <tr>
+                                <td>Statut Whitelist</td>
+                                <td class="text-right text-warning" id="dash-wl-status">Non Soumise</td>
+                            </tr>
+                            <tr>
+                                <td>Identifiant Discord</td>
+                                <td class="text-right text-accent">Non lié</td>
+                            </tr>
+                        </table>
+                        <button class="btn btn-discord btn-full mt-3"><i class="fab fa-discord"></i> Associer Discord</button>
+                    </div>
+
+                    <div class="glass-card p-4 bg-gradient-red">
+                        <h3>Validation Finale requise</h3>
+                        <p class="text-sm mt-2">
+                            Une fois votre dossier Whitelist approuvé par notre équipe de relecteurs, rejoignez le canal vocal d'attente <strong>"Attente Entretien"</strong> sur Discord pour valider votre entrée finale.
+                        </p>
+                        <ul class="check-list mt-3">
+                            <li><i class="fas fa-microphone"></i> Microphone clair et configuré</li>
+                            <li><i class="fas fa-book"></i> Lecture préalable du règlement global</li>
+                            <li><i class="fas fa-user-friends"></i> Concept de personnage bien préparé</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- PAGE FORMULAIRE WHITELIST -->
+        <section id="whitelist" class="page-section container">
+            <div class="form-container-wl glass-card">
+                <div class="form-header">
+                    <h2>FORMULAIRE DE <span class="accent">WHITELIST</span></h2>
+                    <p>Présentez votre personnage et votre parcours pour obtenir votre sésame d'entrée.</p>
+                </div>
+                <form id="whitelist-form" onsubmit="submitWhitelist(event)">
+                    <div class="grid-2 mt-3">
+                        <div class="form-group">
+                            <label for="char-name">Nom Complet du Personnage (Format: Prenom_Nom)*</label>
+                            <input type="text" id="char-name" placeholder="Ex: Jean_Provençal" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="char-age">Âge du personnage (Min. 18 ans)*</label>
+                            <input type="number" id="char-age" min="18" max="99" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="rp-experience">Vos expériences passées en RolePlay (MTA, GTA V, etc.)*</label>
+                        <textarea id="rp-experience" rows="4" placeholder="Décrivez vos anciens serveurs, vos rôles principaux..." required></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="char-story">Histoire de votre Personnage (Background complet)*</label>
+                        <textarea id="char-story" rows="6" placeholder="Origine, forces, faiblesses, objectifs de vie de votre personnage sur le serveur..." required></textarea>
+                    </div>
+                    <div class="grid-2">
+                        <div class="form-group">
+                            <label for="mic-check">Possédez-vous un microphone de bonne qualité ?*</label>
+                            <select id="mic-check" required>
+                                <option value="">-- Sélectionner --</option>
+                                <option value="oui">Oui, parfaitement fonctionnel</option>
+                                <option value="non">Non, ou de mauvaise qualité</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="rule-check">Acceptez-vous scrupuleusement notre règlement ?*</label>
+                            <select id="rule-check" required>
+                                <option value="">-- Sélectionner --</option>
+                                <option value="oui">Oui, j'accepte sans réserve</option>
+                                <option value="non">Non</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-actions mt-3">
+                        <button type="button" class="btn btn-secondary" onclick="showSection('dashboard')">Annuler</button>
+                        <button type="submit" class="btn btn-primary">Soumettre ma candidature</button>
+                    </div>
+                </form>
+            </div>
+        </section>
+
+        <!-- PAGE REGLES -->
+        <section id="rules" class="page-section container">
+            <h2 class="section-title">RÈGLES ET LOIS DE <span class="accent">NEXUS RP</span></h2>
+            <div class="rules-categories">
+                <button class="rule-tab active-tab" onclick="switchRules('general')">Règles Générales</button>
+                <button class="rule-tab" onclick="switchRules('roleplay')">Concepts RolePlay</button>
+                <button class="rule-tab" onclick="switchRules('illegal')">Factions & Crime</button>
+                <button class="rule-tab" onclick="switchRules('legal')">Police & Justice</button>
+            </div>
+
+            <div class="rules-content glass-card mt-4" id="rules-display">
+                <!-- Rendu dynamique par JS -->
+            </div>
+        </section>
+
+        <!-- PAGE GALERIE -->
+        <section id="gallery" class="page-section container">
+            <h2 class="section-title">GALERIE DE NOS <span class="accent">CITOYENS</span></h2>
+            <div class="gallery-grid">
+                <div class="gallery-item glass-card">
+                    <img src="https://picsum.photos/600/400?random=1" alt="Los Santos Skyline">
+                    <div class="gallery-overlay">
+                        <h4>Une ville en mouvement</h4>
+                        <p>Les gratte-ciels de Los Santos n'attendent que vous.</p>
+                    </div>
+                </div>
+                <div class="gallery-item glass-card">
+                    <img src="https://picsum.photos/600/400?random=2" alt="Police Chase">
+                    <div class="gallery-overlay">
+                        <h4>Factions Légales</h4>
+                        <p>Faites régner l'ordre dans le département du Sheriff.</p>
+                    </div>
+                </div>
+                <div class="gallery-item glass-card">
+                    <img src="https://picsum.photos/600/400?random=3" alt="Tuning Car">
+                    <div class="gallery-overlay">
+                        <h4>Customisation Ultime</h4>
+                        <p>Scripts de personnalisation de véhicules avancés.</p>
+                    </div>
+                </div>
+                <div class="gallery-item glass-card">
+                    <img src="https://picsum.photos/600/400?random=4" alt="Street Fight">
+                    <div class="gallery-overlay">
+                        <h4>Contrôle de territoire</h4>
+                        <p>Rejoignez un gang et protégez vos quartiers.</p>
+                    </div>
+                </div>
+                <div class="gallery-item glass-card">
+                    <img src="https://picsum.photos/600/400?random=5" alt="Nightclub">
+                    <div class="gallery-overlay">
+                        <h4>Événements communautaires</h4>
+                        <p>Des soirées immersives chaque week-end.</p>
+                    </div>
+                </div>
+                <div class="gallery-item glass-card">
+                    <img src="https://picsum.photos/600/400?random=6" alt="EMS Crew">
+                    <div class="gallery-overlay">
+                        <h4>Service de Secours</h4>
+                        <p>Protégez et soignez la population de la ville.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- PAGE STAFF -->
+        <section id="staff" class="page-section container">
+            <h2 class="section-title">NOTRE ÉQUIPE <span class="accent">ADMINISTRATIVE</span></h2>
+            <div class="grid-4">
+                <div class="card glass-card text-center staff-card">
+                    <span class="role-badge badge-owner">Fondateur</span>
+                    <img src="https://i.pravatar.cc/150?img=11" alt="Staff Avatar" class="staff-img">
+                    <h3>Xenon</h3>
+                    <p class="text-sm text-gray">Responsable infrastructure et direction générale du projet.</p>
+                </div>
+                <div class="card glass-card text-center staff-card">
+                    <span class="role-badge badge-dev">Lead Developer</span>
+                    <img src="https://i.pravatar.cc/150?img=33" alt="Staff Avatar" class="staff-img">
+                    <h3>Krypton</h3>
+                    <p class="text-sm text-gray">Concepteur des scripts MTA exclusifs et de la base de données.</p>
+                </div>
+                <div class="card glass-card text-center staff-card">
+                    <span class="role-badge badge-admin">Administrateur</span>
+                    <img src="https://i.pravatar.cc/150?img=51" alt="Staff Avatar" class="staff-img">
+                    <h3>Aurelia</h3>
+                    <p class="text-sm text-gray">Supervise l'équité des factions et gère l'équipe de support.</p>
+                </div>
+                <div class="card glass-card text-center staff-card">
+                    <span class="role-badge badge-mod">Modérateur</span>
+                    <img src="https://i.pravatar.cc/150?img=12" alt="Staff Avatar" class="staff-img">
+                    <h3>Marcus</h3>
+                    <p class="text-sm text-gray">Veille au respect des règles RP et encadre les nouveaux arrivants.</p>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- SECTION PARTENAIRES -->
+    <section class="partners container">
+        <h3 class="partners-title">ILS NOUS FONT CONFIANCE</h3>
+        <div class="partners-logos">
+            <div class="partner-item"><i class="fab fa-server"></i> HostMTA</div>
+            <div class="partner-item"><i class="fas fa-shield-alt"></i> SafeGuard Anti-Cheat</div>
+            <div class="partner-item"><i class="fab fa-teamspeak"></i> TS3-Voice</div>
+        </div>
+    </section>
+
+    <!-- PIED DE PAGE (FOOTER) -->
+    <footer class="footer">
+        <div class="container footer-content">
+            <div class="footer-brand">
+                <h2><span class="accent">NEXUS</span>RP</h2>
+                <p>La référence absolue du jeu de rôle multijoueur sur MTA. Découvrez des scripts d'une fluidité légendaire et une communauté sans égal.</p>
+            </div>
+            <div class="footer-links">
+                <h4>Liens Utiles</h4>
+                <ul>
+                    <li><a href="#" onclick="showSection('home')">Accueil</a></li>
+                    <li><a href="#" onclick="showSection('rules')">Règlement global</a></li>
+                    <li><a href="#" onclick="showSection('gallery')">Galerie</a></li>
+                    <li><a href="#" onclick="showSection('staff')">Staff</a></li>
+                </ul>
+            </div>
+            <div class="footer-socials">
+                <h4>Rejoindre la communauté</h4>
+                <div class="social-icons">
+                    <a href="https://discord.gg/votrelien" target="_blank"><i class="fab fa-discord"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 NEXUS ROLEPLAY. Ce site n'est pas affilié à Rockstar Games ou Take-Two Interactive Software.</p>
+        </div>
+    </footer>
+
+    <!-- MODALE : CONNEXION -->
+    <div id="login-modal" class="modal">
+        <div class="modal-content glass-card">
+            <span class="close-btn" onclick="closeModal('login-modal')">&times;</span>
+            <h2>CONNEXION <span class="accent">MEMBRE</span></h2>
+            <form id="login-form" onsubmit="handleLogin(event)">
+                <div class="form-group">
+                    <label for="login-user">Nom d'utilisateur</label>
+                    <input type="text" id="login-user" required placeholder="Votre pseudo">
+                </div>
+                <div class="form-group">
+                    <label for="login-pass">Mot de passe</label>
+                    <input type="password" id="login-pass" required placeholder="••••••••">
+                </div>
+                <button type="submit" class="btn btn-primary btn-full mt-2">Se connecter</button>
+                <div class="divider">OU</div>
+                <button type="button" class="btn btn-discord btn-full"><i class="fab fa-discord"></i> Se connecter via Discord</button>
+            </form>
+            <p class="auth-switch">Pas encore de compte ? <a href="#" onclick="closeModal('login-modal'); openModal('register-modal')">S'inscrire</a></p>
+        </div>
+    </div>
+
+    <!-- MODALE : INSCRIPTION -->
+    <div id="register-modal" class="modal">
+        <div class="modal-content glass-card">
+            <span class="close-btn" onclick="closeModal('register-modal')">&times;</span>
+            <h2>CRÉER UN <span class="accent">COMPTE</span></h2>
+            <form id="register-form" onsubmit="handleRegister(event)">
+                <div class="form-group">
+                    <label for="reg-user">Nom d'utilisateur</label>
+                    <input type="text" id="reg-user" required placeholder="Ex: JohnDoe">
+                </div>
+                <div class="form-group">
+                    <label for="reg-email">Adresse E-mail</label>
+                    <input type="email" id="reg-email" required placeholder="nom@exemple.com">
+                </div>
+                <div class="form-group">
+                    <label for="reg-pass">Mot de passe</label>
+                    <input type="password" id="reg-pass" required placeholder="Min. 8 caractères">
+                </div>
+                <div class="form-group">
+                    <label for="reg-pass-confirm">Confirmer le mot de passe</label>
+                    <input type="password" id="reg-pass-confirm" required placeholder="Identique au mot de passe">
+                </div>
+                <button type="submit" class="btn btn-primary btn-full mt-2">Valider l'inscription</button>
+                <div class="divider">OU</div>
+                <button type="button" class="btn btn-discord btn-full"><i class="fab fa-discord"></i> S'enregistrer via Discord</button>
+            </form>
+            <p class="auth-switch">Déjà inscrit ? <a href="#" onclick="closeModal('register-modal'); openModal('login-modal')">Se connecter</a></p>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
